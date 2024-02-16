@@ -79,12 +79,12 @@ def main():
     # Mostrar el total en DIN en USD
     print("\nTotal en DIN: USD ${:,.2f}".format(total_DIN))
     # Mostrar el total en DIN en CLP
-    print("\nTotal en DIN: CLP ${:.1f}".format(total_DIN * valor_dolar))
+    print("\nTotal en DIN: CLP ${:,.1f}".format(total_DIN * valor_dolar))
 
     # Mostrar el costo sin envío en dólares
     print("\nTOTAL forestry: USD ${:,.2f} ".format(costo_total_con_envio / valor_dolar))
     # Mostrar el costo sin envío en CLP
-    print("\nTOTAL forestry: CLP ${:,.2f} ".format(costo_total_con_envio / valor_dolar) * (valor_dolar))
+    print("\nTOTAL forestry: CLP ${:,.2f} ".format(costo_total_con_envio / valor_dolar * valor_dolar))
 
 
 if __name__ == "__main__":
