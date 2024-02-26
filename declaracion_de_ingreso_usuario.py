@@ -118,6 +118,19 @@ def main():
     print(f"================================")
 
 
+# Display the difference between DIN and Forestry in CLP
+    diferencia_en_clp = diferencia_en_usd * valor_dolar
+    print(f"DIFERENCIA: CLP ${diferencia_en_clp:,.1f}")
+    print(f"================================")
+
+    # Calculate the value to be distributed among products
+    cantidad_productos = len(productos)
+    valor_a_repartir = diferencia_en_clp / cantidad_productos
+
+    # Display the value to be distributed among products
+    print(f"Valor a repartir entre los productos: CLP ${valor_a_repartir:,.1f}")
+    print(f"================================")
+
 
 if __name__ == "__main__":
     main()
