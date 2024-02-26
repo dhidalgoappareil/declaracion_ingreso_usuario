@@ -60,27 +60,42 @@ def main():
     costo_total_sin_envio = sum([cantidad * valor_unitario * valor_dolar for _, cantidad, valor_unitario in productos])
 
     # Display totals in both USD and CLP
-    print(f"\nSuma de los valores totales sin envío en pesos chilenos: ${costo_total_sin_envio:,.2f}")
+    print(f"================================")
+    print(f"================================")
+    print(f"Suma de los valores totales sin envío en pesos chilenos: ${costo_total_sin_envio:,.2f}")
     print(f"Suma de los valores totales sin envío en dólares: ${costo_total_sin_envio / valor_dolar:,.2f}")
-    print(f"\nSuma de los valores totales con envío en pesos chilenos: ${costo_total_sin_envio + total_envio:,.2f}")
+    print(f"================================")
+    print(f"================================")
+    print(f"Suma de los valores totales con envío en pesos chilenos: ${costo_total_sin_envio + total_envio:,.2f}")
     print(f"Suma de los valores totales con envío en dólares: ${(costo_total_sin_envio + total_envio) / valor_dolar:,.2f}")
 
     # Display percentages for each product
-    print("\nPorcentajes a distribuir para cada producto:")
+    print(f"================================")
+    print(f"================================")
+    print("Porcentajes a distribuir para cada producto:")
     for producto, cantidad, valor_unitario in productos:
         porcentaje = (valor_unitario * valor_dolar * cantidad / total_suma) * 100
         print(f"Producto: {producto}, Porcentaje: {porcentaje:.1f}%")
+    print(f"================================")
+    print(f"================================")
 
     # Display total value added to all products
-    print(f"\nValor total agregado a todos los productos: ${valor_agregado_final:,.2f}")
+    print(f"Valor total agregado a todos los productos: ${valor_agregado_final:,.2f}")
 
     # Display total in DIN in both USD and CLP
-    print(f"\nTotal en DIN: USD ${total_DIN:,.2f}")
-    print(f"\nTotal en DIN: CLP ${total_DIN * valor_dolar:,.1f}")
+    print(f"================================")
+    print(f"================================")
+    print(f"Total en DIN: USD ${total_DIN:,.2f}")
+    print(f"Total en DIN: CLP ${total_DIN * valor_dolar:,.1f}")
+    
+    print(f"================================")
+    print(f"================================")
 
     # Display total cost without shipping in both USD and CLP
-    print(f"\nTOTAL forestry: USD ${(costo_total_sin_envio + total_envio) / valor_dolar:,.2f}")
+    print(f"TOTAL forestry: USD ${(costo_total_sin_envio + total_envio) / valor_dolar:,.2f}")
     print(f"TOTAL forestry: CLP ${costo_total_sin_envio:,.2f}")
+    print(f"================================")
+    print(f"================================")
     
     # Display the difference between DIN and Forestry
     diferencia_en_usd = total_DIN - (costo_total_sin_envio + total_envio) / valor_dolar
@@ -89,6 +104,19 @@ def main():
     # Display the difference between DIN and Forestry in CLP
     diferencia_en_clp = diferencia_en_usd * valor_dolar
     print(f"DIFERENCIA: CLP ${diferencia_en_clp:,.1f}")
+    print(f"================================")
+    
+    # Calculate neto value
+    neto = (costo_total_sin_envio + total_envio) + diferencia_en_clp
+    neto_iva = neto * 1.19;
+
+    # Display neto value in both USD and CLP
+    print(f"================================")
+    print(f"Valor Neto en CLP: ${neto:,.1f}")
+    print(f"NETO con IVA: ${neto_iva:,.1f}")
+    print(f"================================")
+    print(f"================================")
+
 
 
 if __name__ == "__main__":
