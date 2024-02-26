@@ -79,8 +79,16 @@ def main():
     print(f"\nTotal en DIN: CLP ${total_DIN * valor_dolar:,.1f}")
 
     # Display total cost without shipping in both USD and CLP
-    print(f"\nTOTAL forestry: USD ${costo_total_sin_envio / valor_dolar:,.2f}")
+    print(f"\nTOTAL forestry: USD ${(costo_total_sin_envio + total_envio) / valor_dolar:,.2f}")
     print(f"TOTAL forestry: CLP ${costo_total_sin_envio:,.2f}")
+    
+    # Display the difference between DIN and Forestry
+    diferencia_en_usd = total_DIN - (costo_total_sin_envio + total_envio) / valor_dolar
+    print(f"DIFERENCIA: USD ${diferencia_en_usd:,.1f}")
+
+    # Display the difference between DIN and Forestry in CLP
+    diferencia_en_clp = diferencia_en_usd * valor_dolar
+    print(f"DIFERENCIA: CLP ${diferencia_en_clp:,.1f}")
 
 
 if __name__ == "__main__":
